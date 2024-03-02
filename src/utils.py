@@ -40,7 +40,7 @@ def account_disguise(account):
             numbers.append(number)
     if len(numbers) == 16:
         return (f'{account[:-16]}'
-                f'{"".join(numbers)[:4]} {"".join(numbers)[5:7]}** **** {"".join(numbers)[-4:]}')
+                f'{"".join(numbers)[:4]} {"".join(numbers)[4:6]}** **** {"".join(numbers)[-4:]}')
     elif len(numbers) == 20:
         return f'Счет **{"".join(numbers)[-4:]}'
     return numbers
