@@ -1,7 +1,5 @@
 import json
 
-file_path = "/home/moskalev/PycharmProjects/account_transactions/operations.json"
-
 
 def read_from_file_json(file_path):
     """
