@@ -1,4 +1,4 @@
-from utils import read_from_file_json, filtered_data_json, sorted_data_json
+from utils import read_from_file_json, filtered_data_json, sorted_data_json, account_disguise
 
 FILE_PATH = "../operations.json"
 
@@ -18,16 +18,11 @@ def main():
         currency = operation["operationAmount"]["currency"]["name"]
         print(f"{date} {description}")
         if away_from:
-            print(f"{away_from} -> {to_where}")
+            print(f"{account_disguise(away_from)} -> {account_disguise(to_where)}")
         else:
-            print(f"{to_where}")
+            print(f"{account_disguise(to_where)}")
         print(f"{amount} {currency}\n")
 
-
-# Пример вывода для одной операции:
-# 14.10.2018 Перевод организации
-# Visa Platinum 7000 79** **** 6361 -> Счет **9638
-# 82771.72 руб.
 
 if __name__ == "__main__":
     main()
