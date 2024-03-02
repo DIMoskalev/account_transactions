@@ -32,6 +32,3 @@ def sorted_data_json(filtered_data):
     """
     sorted_data = sorted(filtered_data, key=lambda x: x['date'])
     return sorted_data
-
-
-
