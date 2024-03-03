@@ -1,13 +1,17 @@
+import os
+from datetime import datetime
+from config import ROOT_DIR
 from utils import read_from_file_json, filtered_data_json, sorted_data_json, account_disguise
 
-FILE_PATH = "../operations.json"
+OPERATIONS_PATH = os.path.join(ROOT_DIR, 'src', 'operations.json')
 
 
 def main():
-    file_operation = sorted_data_json(filtered_data_json(read_from_file_json(FILE_PATH)))
+    file_operation = sorted_data_json(filtered_data_json(read_from_file_json(OPERATIONS_PATH)))
     operations_for_output = file_operation[-5:]
     for operation in operations_for_output:
-        date = operation['date'][:10].replace("-", ".")
+        date = datetime.fromisoformat(operation['date'])
+        date = date.strftime('%d.%m.%Y')
         description = operation["description"]
         if 'from' in operation.keys():
             away_from = operation['from']
