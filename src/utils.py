@@ -1,7 +1,5 @@
 import json
 
-file_path = "../operations.json"
-
 
 def read_from_file_json(file_path):
     """
@@ -33,15 +31,15 @@ def sorted_data_json(filtered_data):
     sorted_data = sorted(filtered_data, key=lambda x: x['date'])
     return sorted_data
 
+
 def account_disguise(account):
+    """Функция маскирует полный номер счета и карты и возвращает зашифрованные данные"""
     numbers = []
     for number in account:
         if number.isdigit():
             numbers.append(number)
     if len(numbers) == 16:
         return (f'{account[:-16]}'
-                f'{"".join(numbers)[:4]} {"".join(numbers)[5:7]}** **** {"".join(numbers)[-4:]}')
-
+                f'{"".join(numbers)[:4]} {"".join(numbers)[4:6]}** **** {"".join(numbers)[-4:]}')
     elif len(numbers) == 20:
         return f'Счет **{"".join(numbers)[-4:]}'
-    return numbers
