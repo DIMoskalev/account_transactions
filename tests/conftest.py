@@ -1,8 +1,10 @@
+import os
 import pytest
+from config import ROOT_DIR
 
-file_path = "/home/moskalev/PycharmProjects/account_transactions/operations.json"
+OPERATIONS_PATH = os.path.join(ROOT_DIR, 'src', 'operations.json')
 
 
 @pytest.fixture
 def list_json():
-    return file_path
+    return OPERATIONS_PATH
